@@ -1,0 +1,12 @@
+body {
+	background-image: url("../images/epic-blurred.jpg");
+	background-color: #303030;
+	background-size: cover;
+}
+
+#sketch-card {
+	width: 550px;
+	min-height: 550px;
+	margin: auto;
+	margin-top: 5px;
+}

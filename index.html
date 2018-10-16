@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    
+    <nav class="grey darken-4">
+      <div class="nav-wrapper">
+        <a class="brand-logo"><i class="material-icons">airplay</i>Mat</a>
+        <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="maybe.html">Maybe Answers</a></li>
+          <li><a class="dropdown-trigger" data-target="dropdown1">P5.js stuff<i class="material-icons right">arrow_drop_down</i></a></li>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a onclick="changeCanvas('jstesting/braillepaint.js')">Braille paint</a></li>
+            <li><a onclick="changeCanvas('jstesting/snake.js')">Snake</a></li>
+            <li><a onclick="changeCanvas('jstesting/tictactoe.js')">Tic-Tac-Toe</a></li>
+            <li><a onclick="changeCanvas('jstesting/tiles.js')">Tiles</a></li>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+    
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="" onclick="changeCanvas('jstesting/braillepaint.js')">Braille paint</a></li>
+      <li><a href="" onclick="changeCanvas('jstesting/snake.js')">Snake</a></li>
+      <li><a href="" onclick="changeCanvas('jstesting/tictactoe.js')">Tic-Tac-Toe</a></li>
+      <li><a href="" onclick="changeCanvas('jstesting/tiles.js')">Tiles</a></li>
+    </ul>
+    
+    <div id="remove-sketch" class="fixed-action-btn" onclick="removeCanvas()">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">clear</i>
+      </a>
+    </div>
+  </div>
+
+  <div id="sketch-card" class="card-panel hoverable">
+    <div id="card-canvas"></div>
+  </div>
+
+  
+  
+  <!--JavaScript at end of body for optimized loading-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
