@@ -1,22 +1,22 @@
 function brailleSketch(sketch) {
 
 	var grid = [];
-	var genButton;
-	var textP;
 	var inverted = false;
-	var tButton;
 	var bSize = 3;
 	var cButton;
 
 	sketch.setup = () => {
 		sketch.createCanvas(500, 500);
-		genButton = sketch.createButton('generate');
-		tButton = sketch.createButton('invert');
-		cButton = sketch.createButton('clear');
+		var genButton = sketch.createElement('a','generate');
+		var tButton = sketch.createElement('a','invert');
+		var cButton = sketch.createElement('a','clear');
 		textP = sketch.createP('hello!');
 		genButton.mouseClicked(genBraille);
+		genButton.class('waves-effect waves-light btn');
 		tButton.mouseClicked(toggleV);
+		tButton.class('waves-effect waves-light btn');
 		cButton.mouseClicked(resetG);
+		cButton.class('waves-effect waves-light btn');
 		//pixelDensity(1);
 		resetG();
 	}
