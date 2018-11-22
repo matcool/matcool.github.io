@@ -1,0 +1,29 @@
+body {
+    background: black;
+}
+
+#circles {
+    width: 0px;
+    margin: auto;
+}
+
+.circle {
+    position: absolute;
+    mix-blend-mode: screen;
+    height: 300px;
+    width: 300px;
+    border: 25px solid;
+    border-radius: 50%
+}
+
+.red-border {
+    border-color: rgb(255,0,0);
+}
+
+.green-border {
+    border-color: rgb(0,255,0);
+}
+
+.blue-border {
+    border-color: rgb(0,0,255);
+}
