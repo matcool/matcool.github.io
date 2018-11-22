@@ -6,7 +6,7 @@ function changeCanvas(file) {
 	}
 	$('#sketch-card').show();
 	$('#remove-sketch').show();
-	$.getScript(file);
+	$.getScript('sketches/'+file);
 }
 
 function removeCanvas() {
@@ -16,14 +16,10 @@ function removeCanvas() {
 }
 
 $(document).ready(function() {
-
 	$('#sketch-card').hide();
 	$('#remove-sketch').hide();
 	$('.dropdown-trigger').dropdown();
 	$('.fixed-action-btn').floatingActionButton();
 	$('.sidenav').sidenav();
-
-	
-	
 })
 
