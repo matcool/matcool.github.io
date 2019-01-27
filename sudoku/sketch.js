@@ -8,9 +8,6 @@ function setup() {
     let b = windowWidth > windowHeight ? windowHeight : windowWidth;
     let c = createCanvas(b, b);
     c.parent('sudoku');
-    let node = document.getElementById('sudoku')
-    let tmargin = b == windowWidth ? -floor((windowHeight-windowWidth)/2) : 0
-    node.insertAdjacentHTML('beforebegin', `<span style="position:absolute;margin-top:${tmargin}px;color:#555;" >made by mat<br><span style="color:#222">jose has my epic permission to use this</span></span>`);
     if (b == windowWidth) {
         c.canvas.style['margin-top'] = floor((windowHeight-windowWidth)/2)+'px';
     }
@@ -77,6 +74,15 @@ function getInvalid(n,x,y) {
 
 function draw() {
     background(0);
+    let lang = navigator.language || navigator.userLanguage;
+    fill(100,100,100,25);
+    textAlign(CENTER,CENTER);
+    textSize(w/15);
+    noStroke();
+    if (lang == 'es-ES')
+        text("Hecho por Mat y José",width/2,w/2);
+    else
+        text("Made by Mat and joseph",width/2,w/2);
     let xoff = (width - w) / 2;
     let hovered = floor(map(mouseX - xoff, 0, w, 1, 10));
     let bsize = w / 9 - 10;
