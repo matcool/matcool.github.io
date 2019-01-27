@@ -7,8 +7,10 @@ let anyerrors = false;
 function setup() {
     let b = windowWidth > windowHeight ? windowHeight : windowWidth;
     let c = createCanvas(b, b);
-    console.log(c);
     c.parent('sudoku');
+    let node = document.getElementById('sudoku')
+    let tmargin = b == windowWidth ? -floor((windowHeight-windowWidth)/2) : 0
+    node.insertAdjacentHTML('beforebegin', `<span style="position:absolute;margin-top:${tmargin}px;color:#555;" >made by mat<br><span style="color:#222">jose has my epic permission to use this</span></span>`);
     if (b == windowWidth) {
         c.canvas.style['margin-top'] = floor((windowHeight-windowWidth)/2)+'px';
     }
