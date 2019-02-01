@@ -2,7 +2,7 @@ function brailleSketch(sketch) {
 
 	var grid = [];
 	var inverted = false;
-	var bSize = 3;
+	var bSize = 1;
 	var cButton;
 
 	sketch.setup = () => {
@@ -10,7 +10,9 @@ function brailleSketch(sketch) {
 		var genButton = sketch.createElement('a','generate');
 		var tButton = sketch.createElement('a','invert');
 		var cButton = sketch.createElement('a','clear');
-		textP = sketch.createP('hello!');
+		textP = sketch.createElement('p','hello!');
+		textP.style('font-family','Iosevka Web');
+		textP.style('line-height','80%');
 		genButton.mouseClicked(genBraille);
 		genButton.class('waves-effect waves-light btn');
 		tButton.mouseClicked(toggleV);
@@ -56,9 +58,9 @@ function brailleSketch(sketch) {
 			}
 		}
 		if (sketch.mouseIsPressed && !offscreen) {
-			grid[gridmx][gridmy] = false;
-			for (var xx = -Math.floor(bSize / 2); xx < Math.floor(bSize / 2); xx++) {
-				for (var yy = -Math.floor(bSize / 2); yy < Math.floor(bSize / 2); yy++) {
+			//grid[gridmx][gridmy] = false;
+			for (var xx = -bSize; xx < bSize; xx++) {
+				for (var yy = -bSize; yy < bSize; yy++) {
 					if (gridmx + xx < grid.length && gridmx + xx > 0 && gridmy + yy < grid[0].length && gridmy + yy > 0) {
 						grid[gridmx + xx][gridmy + yy] = false;
 					}
@@ -75,218 +77,11 @@ function brailleSketch(sketch) {
 
 	function genBraille() {
 		var finalText = '';
+		let checks = [[1,2],[1,1],[1,0],[0,2],[0,1],[0,0]];
 		for (var y = 0; y < grid[0].length; y += 3) {
 			for (var x = 0; x < grid.length; x += 2) {
-				var surround = '';
-				if (inverted) {
-					surround += grid[x][y].toString().charAt(0);
-					surround += grid[x + 1][y].toString().charAt(0);
-					surround += grid[x][y + 1].toString().charAt(0);
-					surround += grid[x + 1][y + 1].toString().charAt(0);
-					surround += grid[x][y + 2].toString().charAt(0);
-					surround += grid[x + 1][y + 2].toString().charAt(0);
-				} else {
-					surround += (!grid[x][y]).toString().charAt(0);
-					surround += (!grid[x + 1][y]).toString().charAt(0);
-					surround += (!grid[x][y + 1]).toString().charAt(0);
-					surround += (!grid[x + 1][y + 1]).toString().charAt(0);
-					surround += (!grid[x][y + 2]).toString().charAt(0);
-					surround += (!grid[x + 1][y + 2]).toString().charAt(0);
-				}
-				switch (surround) {
-					case 'ffffff':
-						finalText += '⠀';
-						break;
-					case 'tfffff':
-						finalText += '⠁';
-						break;
-					case 'fftfff':
-						finalText += '⠂';
-						break;
-					case 'tftfff':
-						finalText += '⠃';
-						break;
-					case 'fffftf':
-						finalText += '⠄';
-						break;
-					case 'tffftf':
-						finalText += '⠅';
-						break;
-					case 'fftftf':
-						finalText += '⠆';
-						break;
-					case 'tftftf':
-						finalText += '⠇';
-						break;
-					case 'ftffff':
-						finalText += '⠈';
-						break;
-					case 'ttffff':
-						finalText += '⠉';
-						break;
-					case 'fttfff':
-						finalText += '⠊';
-						break;
-					case 'tttfff':
-						finalText += '⠋';
-						break;
-					case 'ftfftf':
-						finalText += '⠌';
-						break;
-					case 'ttfftf':
-						finalText += '⠍';
-						break;
-					case 'fttftf':
-						finalText += '⠎';
-						break;
-					case 'tttftf':
-						finalText += '⠏';
-						break;
-					case 'ffftff':
-						finalText += '⠐';
-						break;
-					case 'tfftff':
-						finalText += '⠑';
-						break;
-					case 'ffttff':
-						finalText += '⠒';
-						break;
-					case 'tfttff':
-						finalText += '⠓';
-						break;
-					case 'fffttf':
-						finalText += '⠔';
-						break;
-					case 'tffttf':
-						finalText += '⠕';
-						break;
-					case 'fftttf':
-						finalText += '⠖';
-						break;
-					case 'tftttf':
-						finalText += '⠗';
-						break;
-					case 'ftftff':
-						finalText += '⠘';
-						break;
-					case 'ttftff':
-						finalText += '⠙';
-						break;
-					case 'ftttff':
-						finalText += '⠚';
-						break;
-					case 'ttttff':
-						finalText += '⠛';
-						break;
-					case 'ftfttf':
-						finalText += '⠜';
-						break;
-					case 'ttfttf':
-						finalText += '⠝';
-						break;
-					case 'fttttf':
-						finalText += '⠞';
-						break;
-					case 'tttttf':
-						finalText += '⠟';
-						break;
-					case 'ffffft':
-						finalText += '⠠';
-						break;
-					case 'tfffft':
-						finalText += '⠡';
-						break;
-					case 'fftfft':
-						finalText += '⠢';
-						break;
-					case 'tftfft':
-						finalText += '⠣';
-						break;
-					case 'fffftt':
-						finalText += '⠤';
-						break;
-					case 'tffftt':
-						finalText += '⠥';
-						break;
-					case 'fftftt':
-						finalText += '⠦';
-						break;
-					case 'tftftt':
-						finalText += '⠧';
-						break;
-					case 'ftffft':
-						finalText += '⠨';
-						break;
-					case 'ttffft':
-						finalText += '⠩';
-						break;
-					case 'fttfft':
-						finalText += '⠪';
-						break;
-					case 'tttfft':
-						finalText += '⠫';
-						break;
-					case 'ftfftt':
-						finalText += '⠬';
-						break;
-					case 'ttfftt':
-						finalText += '⠭';
-						break;
-					case 'fttftt':
-						finalText += '⠮';
-						break;
-					case 'tttftt':
-						finalText += '⠯';
-						break;
-					case 'ffftft':
-						finalText += '⠰';
-						break;
-					case 'tfftft':
-						finalText += '⠱';
-						break;
-					case 'ffttft':
-						finalText += '⠲';
-						break;
-					case 'tfttft':
-						finalText += '⠳';
-						break;
-					case 'fffttt':
-						finalText += '⠴';
-						break;
-					case 'tffttt':
-						finalText += '⠵';
-						break;
-					case 'fftttt':
-						finalText += '⠶';
-						break;
-					case 'tftttt':
-						finalText += '⠷';
-						break;
-					case 'ftftft':
-						finalText += '⠸';
-						break;
-					case 'ttftft':
-						finalText += '⠹';
-						break;
-					case 'ftttft':
-						finalText += '⠺';
-						break;
-					case 'ttttft':
-						finalText += '⠻';
-						break;
-					case 'ftfttt':
-						finalText += '⠼';
-						break;
-					case 'ttfttt':
-						finalText += '⠽';
-						break;
-					case 'fttttt':
-						finalText += '⠾';
-						break;
-					case 'tttttt':
-						finalText += '⠿';
-						break;
-				}
+				var surround = checks.map(i => grid[x+i[0]][y+i[1]] ^ inverted ? 0 : 1).join('');
+				finalText += eval(`"\\u${(0x2800+parseInt(surround,2)).toString(16)}"`);
 			}
 			finalText += '<br>';
 		}
