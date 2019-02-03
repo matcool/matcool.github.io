@@ -25,6 +25,7 @@ function brailleSketch(sketch) {
 		toolBtn('timeline', 'line');
 		toolBtn('panorama_fish_eye', 'circle');
 		toolBtn('fiber_manual_record', 'circleF');
+		toolBtn('format_paint', 'bucket');
 
 		sketch.createElement('br');
 		bSizeSlider = sketch.createSlider(0, 6, 0);
@@ -123,6 +124,11 @@ function brailleSketch(sketch) {
 					break;
 			}
 		}
+		switch (tool) {
+			case 'bucket':
+				gridFill(gmx,gmy,0,1);
+				break;
+		}
 		ax = ay = undefined;
 	}
 
@@ -200,6 +206,19 @@ function brailleSketch(sketch) {
 			putPix(-y + cx, x + cy);
 			putPix(-y + cx, -x + cy);
 		}
+	}
+
+	function gridFill(x,y,r,w) {
+		//https://en.wikipedia.org/wiki/Flood_fill
+		if (x < 0 || x >= gw || y < 0 || y >= gh) return
+		let n = grid[y][x];
+		if (n != r) return
+		if (n == w) return
+		grid[y][x] = w;
+		gridFill(x-1,y,r,w);
+		gridFill(x+1,y,r,w);
+		gridFill(x,y-1,r,w);
+		gridFill(x,y+1,r,w);
 	}
 
 	function genBraille() {
