@@ -6,6 +6,7 @@ function brailleSketch(sketch) {
 	let sx, sy;
 	let inverted = false;
 	let bSize = 1;
+	let bSizeSlider;
 	let cButton;
 	let textP;
 	let tool = 'brush';
@@ -26,6 +27,7 @@ function brailleSketch(sketch) {
 		toolBtn('fiber_manual_record', 'circleF');
 
 		sketch.createElement('br');
+		bSizeSlider = sketch.createSlider(0, 6, 0);
 		sketch.createElement('br');
 
 		let genButton = sketch.createElement('a', 'generate');
@@ -62,6 +64,8 @@ function brailleSketch(sketch) {
 	}
 
 	sketch.draw = () => {
+		let v = bSizeSlider.value();
+		bSize = v == 0 ? 0 : 2 * (v - 1) + 1;
 		sketch.background(100)
 		sketch.noStroke();
 		sketch.fill(255);
@@ -81,10 +85,10 @@ function brailleSketch(sketch) {
 		if (sketch.mouseIsPressed) {
 			switch (tool) {
 				case 'brush':
-					gridLine(pgmx, pgmy, gmx, gmy);
+					if (insideGrid(gmx, gmy)) gridLine(pgmx, pgmy, gmx, gmy);
 					break;
 				case 'eraser':
-					paint(gmx, gmy, true);
+					if (insideGrid(gmx, gmy)) gridLine(pgmx, pgmy, gmx, gmy, true);
 					break;
 				case 'line':
 					sketch.stroke(255);
@@ -122,14 +126,18 @@ function brailleSketch(sketch) {
 		ax = ay = undefined;
 	}
 
+	function insideGrid(x, y) {
+		return y >= 0 && y < gh && x >= 0 && x < gw;
+	}
+
 	function putPix(x, y, t = 1) {
-		if (y >= 0 && y < gh && x >= 0 && x < gw) grid[y][x] = t;
+		if (insideGrid(x, y)) grid[y][x] = t;
 	}
 
 	function paint(x, y, erase = false) {
 		let t = erase ? 0 : 1
 		if (bSize == 0) {
-			grid[y][x] = t;
+			putPix(x, y, t);
 		} else {
 			for (let j = -bSize; j <= bSize; j++) {
 				for (let i = -bSize; i <= bSize; i++) {
