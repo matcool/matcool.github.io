@@ -21,11 +21,11 @@ function brailleSketch(sketch) {
 		sy = sketch.height / gh;
 
 		toolBtn('brush', 'brush');
-		toolBtn('clear', 'eraser');
+		toolBtn('', 'eraser', 'fas fa-eraser');
 		toolBtn('timeline', 'line');
 		toolBtn('panorama_fish_eye', 'circle');
 		toolBtn('fiber_manual_record', 'circleF');
-		toolBtn('format_paint', 'bucket');
+		toolBtn('', 'bucket', 'fas fa-fill-drip');
 
 		sketch.createElement('br');
 		bSizeSlider = sketch.createSlider(0, 6, 0);
@@ -46,8 +46,8 @@ function brailleSketch(sketch) {
 		cButton.class('waves-effect waves-light btn');
 	}
 
-	function toolBtn(icon, tool_) {
-		let btn = sketch.createElement('a', `<i class="material-icons">${icon}</i>`);
+	function toolBtn(icon, tool_, hclass="material-icons") {
+		let btn = sketch.createElement('a', `<i class="${hclass}">${icon}</i>`);
 		btn.mouseClicked(_ => tool = tool_);
 		btn.class('waves-effect waves-light btn');
 	}
