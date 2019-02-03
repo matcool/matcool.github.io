@@ -26,6 +26,8 @@ function brailleSketch(sketch) {
 		toolBtn('panorama_fish_eye', 'circle');
 		toolBtn('fiber_manual_record', 'circleF');
 		toolBtn('', 'bucket', 'fas fa-fill-drip');
+		toolBtn('vignette', 'ellipse');
+		toolBtn('', 'ellipseF', 'fas fa-egg')
 
 		sketch.createElement('br');
 		bSizeSlider = sketch.createSlider(0, 6, 0);
@@ -46,7 +48,7 @@ function brailleSketch(sketch) {
 		cButton.class('waves-effect waves-light btn');
 	}
 
-	function toolBtn(icon, tool_, hclass="material-icons") {
+	function toolBtn(icon, tool_, hclass = "material-icons") {
 		let btn = sketch.createElement('a', `<i class="${hclass}">${icon}</i>`);
 		btn.mouseClicked(_ => tool = tool_);
 		btn.class('waves-effect waves-light btn');
@@ -106,6 +108,26 @@ function brailleSketch(sketch) {
 						ax = gmx;
 						ay = gmy;
 					}
+					sketch.ellipseMode(sketch.CENTER);
+					if (tool == 'circleF') sketch.fill(255);
+					else sketch.noFill();
+					sketch.stroke(255);
+					sketch.strokeWeight(1);
+					sketch.ellipse(ax * sx, ay * sy, sketch.dist(ax * sx, ay * sy, sketch.mouseX, sketch.mouseY) * 2);
+					break;
+				case 'ellipse':
+				case 'ellipseF':
+					if (insideGrid(gmx, gmy) && ax == undefined) {
+						ax = gmx;
+						ay = gmy;
+					}
+					sketch.ellipseMode(sketch.CENTER);
+					if (tool == 'ellipseF') sketch.fill(255);
+					else sketch.noFill();
+					sketch.stroke(255);
+					sketch.strokeWeight(1);
+					sketch.ellipse(ax * sx, ay * sy, (sketch.mouseX - ax * sx) * 2, (sketch.mouseY - ay * sy) * 2);
+					break;
 			}
 		}
 	}
@@ -122,11 +144,15 @@ function brailleSketch(sketch) {
 				case 'circleF':
 					gridCircle(ax, ay, Math.floor(sketch.dist(ax, ay, gmx, gmy)), tool == 'circleF');
 					break;
+				case 'ellipse':
+				case 'ellipseF':
+					gridEllipse(ax, ay, Math.abs(gmx - ax), Math.abs(gmy - ay), tool == 'ellipseF');
+					break;
 			}
 		}
 		switch (tool) {
 			case 'bucket':
-				gridFill(gmx,gmy,0,1);
+				gridFill(gmx, gmy, 0, 1);
 				break;
 		}
 		ax = ay = undefined;
@@ -208,17 +234,80 @@ function brailleSketch(sketch) {
 		}
 	}
 
-	function gridFill(x,y,r,w) {
-		//https://en.wikipedia.org/wiki/Flood_fill
+	// https://dai.fmph.uniba.sk/upload/0/01/Ellipse.pdf
+	function gridEllipse(cx, cy, rx, ry, fill = false) {
+		if (fill) {
+			for (let y = -ry; y <= ry; y++) {
+				for (let x = -rx; x <= rx; x++) {
+					if (x ** 2 * ry ** 2 + y ** 2 * rx ** 2 <= rx ** 2 * ry ** 2) {
+						putPix(x + cx, y + cy)
+					}
+				}
+			}
+			return;
+		}
+
+		function plotpoints(x, y) {
+			putPix(cx + x, cy + y);
+			putPix(cx - x, cy + y);
+			putPix(cx - x, cy - y);
+			putPix(cx + x, cy - y);
+		}
+		let tas = 2 * rx * rx;
+		let tbs = 2 * ry * ry;
+		let x = rx;
+		let y = 0;
+		let dx = ry ** 2 * (1 - 2 * rx);
+		let dy = rx ** 2;
+		let err = 0;
+		let sx = tbs * rx;
+		let sy = 0;
+		while (sx >= sy) {
+			plotpoints(x, y);
+			y++;
+			sy += tas;
+			err += dy;
+			dy += tas;
+			if (err * 2 + dx > 0) {
+				x--;
+				sx -= tbs;
+				err += dx;
+				dx += tbs;
+			}
+		}
+		x = 0;
+		y = ry;
+		dx = ry ** 2;
+		dy = rx ** 2 * (1 - 2 * ry);
+		err = 0;
+		sx = 0;
+		sy = tas * ry;
+		while (sx <= sy) {
+			plotpoints(x, y);
+			x++;
+			sx += tbs;
+			err += dx;
+			dx += tbs;
+			if (err * 2 + dy > 0) {
+				y--;
+				sy -= tas;
+				err += dy;
+				dy += tas;
+			}
+		}
+	}
+
+	//https://en.wikipedia.org/wiki/Flood_fill
+	function gridFill(x, y, r, w) {
 		if (x < 0 || x >= gw || y < 0 || y >= gh) return
 		let n = grid[y][x];
 		if (n != r) return
 		if (n == w) return
 		grid[y][x] = w;
-		gridFill(x-1,y,r,w);
-		gridFill(x+1,y,r,w);
-		gridFill(x,y-1,r,w);
-		gridFill(x,y+1,r,w);
+		gridFill(x - 1, y, r, w);
+		gridFill(x + 1, y, r, w);
+		gridFill(x, y - 1, r, w);
+		gridFill(x, y + 1, r, w);
 	}
 
 	function genBraille() {
