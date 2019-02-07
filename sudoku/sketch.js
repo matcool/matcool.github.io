@@ -74,15 +74,10 @@ function getInvalid(n,x,y) {
 
 function draw() {
     background(0);
-    let lang = navigator.language || navigator.userLanguage;
     fill(100,100,100,25);
     textAlign(CENTER,CENTER);
     textSize(w/15);
     noStroke();
-    if (lang == 'es-ES')
-        text("Hecho por Mat y José",width/2,w/2);
-    else
-        text("Made by Mat and joseph",width/2,w/2);
     let xoff = (width - w) / 2;
     let hovered = floor(map(mouseX - xoff, 0, w, 1, 10));
     let bsize = w / 9 - 10;
