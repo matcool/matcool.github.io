@@ -37,6 +37,9 @@ function brailleSketch(sketch) {
 		let tButton = sketch.createElement('a', 'invert');
 		let cButton = sketch.createElement('a', 'clear');
 
+		sketch.createElement('br');
+		sketch.createA('https://matcool.github.io/braille-paint/','please consider using this instead');
+
 		textP = sketch.createElement('p', 'hello!');
 		textP.style('font-family', 'Iosevka Web');
 		textP.style('line-height', '100%');
