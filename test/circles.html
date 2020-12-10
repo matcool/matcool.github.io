@@ -5,23 +5,14 @@
 </head>
 <body>
     <div id="circles">
-        <div class="circle red-border"></div>
-        <div class="circle green-border"></div>
-        <div class="circle blue-border"></div>
+        <div class="rotator" style="animation-delay: 0ms;">
+            <div class="circle red"></div>
+        </div>
+        <div class="rotator" style="animation-delay: 1000ms;">
+            <div class="circle green"></div>
+        </div>
+        <div class="rotator" style="animation-delay: 2000ms;">
+            <div class="circle blue"></div>
+        </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        var gt = 0;
-        var off = (Math.PI*2)/3;
-        var r = 5;
-        setInterval(() => {
-            $('.circle').each((i, obj) => {
-                obj.style.marginLeft = Math.floor(Math.cos(gt+(off*i))*r) - 200 + "px";
-                obj.style.marginTop = Math.floor(Math.sin(gt+(off*i))*r) + 100 + "px";
-            })
-            gt += 0.04;
-            gt %= Math.PI * 2;   
-        },15)
-    </script>
 </body>
