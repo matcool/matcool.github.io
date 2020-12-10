@@ -3,3 +3,12 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+body {
+    background: url('/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.unsplash-text {
+    color: rgba(255, 255, 255, 0.3);
+}
