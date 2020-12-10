@@ -1,8 +1,11 @@
 <template>
     <div class="flex justify-center mt-10">
         <div class="flex flex-col items-center">
-            <h1 class="text-4xl font-semibold text-white">Mat</h1>
-            <div class="my-10"></div>
+            <img :src="matLogo" alt="mat" class="h-32 logo">
+            <div class="flex gap-2 mt-7">
+                <a href="https://github.com/matcool"><img :src="githubLogo" class="w-8 h-auto"></a>
+                <a href="https://www.youtube.com/channel/UCvIsjvDr8uUQJ820smcvDCg"><img :src="youtubeLogo" class="w-8 h-auto"></a>
+            </div>
             <h2 class="text-4xl font-semibold text-gray-100 text-shadow-lg my-5">Websites</h2>
             <div class="flex flex-wrap justify-center gap-10 lg:mx-40">
                 <card v-for="(website, i) in websites" :key="i" :content="website" />
@@ -21,10 +24,24 @@
     >
 </template>
 
+<style lang="postcss">
+    .unsplash-text {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .logo {
+        image-rendering: pixelated;
+        filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.3));
+    }
+</style>
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Card from './components/Card.vue';
 import type { CardContent } from './types';
+import matLogo from './assets/mat.png';
+import githubLogo from 'super-tiny-icons/images/svg/github.svg';
+import youtubeLogo from 'super-tiny-icons/images/svg/youtube.svg';
 
 export default defineComponent({
     components: {
@@ -84,6 +101,9 @@ export default defineComponent({
         return {
             websites,
             other,
+            matLogo,
+            githubLogo,
+            youtubeLogo
         };
     },
 });
