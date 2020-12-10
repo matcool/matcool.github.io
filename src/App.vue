@@ -1,5 +1,5 @@
 <template>
-    <div>Hello :D</div>
+    <div>y it no work >:(</div>
 </template>
 
 <script lang="ts">
