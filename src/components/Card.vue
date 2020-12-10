@@ -1,5 +1,5 @@
 <template>
-    <div class="card shadow-lg px-5 py-3 rounded text-center w-80">
+    <div class="transition-colors card shadow-lg px-5 py-3 rounded text-center w-80">
         <a :href="content.link">
             <h3 class="text-xl mb-2 font-medium" :class="{ 'hover:underline': content.link }">
                 {{ content.title }}
@@ -13,6 +13,9 @@
 .card {
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
+}
+.card:hover {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 </style>
 

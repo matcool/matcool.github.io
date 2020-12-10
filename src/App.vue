@@ -1,10 +1,14 @@
 <template>
     <div class="flex justify-center mt-10">
         <div class="flex flex-col items-center">
-            <img :src="matLogo" alt="mat" class="h-32 logo">
+            <img :src="matLogo" alt="mat" class="h-32 logo" />
             <div class="flex gap-2 mt-7">
-                <a href="https://github.com/matcool"><img :src="githubLogo" class="w-8 h-auto"></a>
-                <a href="https://www.youtube.com/channel/UCvIsjvDr8uUQJ820smcvDCg"><img :src="youtubeLogo" class="w-8 h-auto"></a>
+                <a href="https://github.com/matcool">
+                    <img :src="githubLogo" class="w-8 h-auto" />
+                </a>
+                <a href="https://www.youtube.com/channel/UCvIsjvDr8uUQJ820smcvDCg">
+                    <img :src="youtubeLogo" class="w-8 h-auto" />
+                </a>
             </div>
             <h2 class="text-4xl font-semibold text-gray-100 text-shadow-lg my-5">Websites</h2>
             <div class="flex flex-wrap justify-center gap-10 lg:mx-40">
@@ -25,14 +29,14 @@
 </template>
 
 <style lang="postcss">
-    .unsplash-text {
-        color: rgba(255, 255, 255, 0.3);
-    }
+.unsplash-text {
+    color: rgba(255, 255, 255, 0.3);
+}
 
-    .logo {
-        image-rendering: pixelated;
-        filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.3));
-    }
+.logo {
+    image-rendering: pixelated;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.3));
+}
 </style>
 
 <script lang="ts">
@@ -103,7 +107,7 @@ export default defineComponent({
             other,
             matLogo,
             githubLogo,
-            youtubeLogo
+            youtubeLogo,
         };
     },
 });
