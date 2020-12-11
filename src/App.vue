@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center mt-10">
         <div class="flex flex-col items-center">
-            <img :src="matLogo" alt="mat" class="h-32 logo" />
+            <img :src="matLogo" alt="mat" class="w-auto h-32 logo flex-shrink-0 object-contain" />
             <div class="flex gap-2 mt-7">
                 <a href="https://github.com/matcool">
                     <img :src="githubLogo" class="w-8 h-auto" />
