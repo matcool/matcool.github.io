@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>My App</title>
-    <script>
-        // ========================================
-        // Credits:
-        // - https://stackoverflow.com/a/50259501
-        // - https://stackoverflow.com/a/50247140
-        // ========================================
-        const segment = 1
-
-        sessionStorage.redirect = '/' + location.pathname.slice(1).split('/').slice(segment).join('/')
-
-        location.replace(
-            location.pathname.split('/').slice(0, 1 + segment).join('/')
-        )
-    </script>
-<script type="module" crossorigin src="/assets/404.2f89a3cd.js"></script>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.png" />
+        <title>Mat</title>
+    <script type="module" crossorigin src="/assets/main.ab8a4866.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.e22d4117.js">
+  <link rel="stylesheet" href="/assets/main.8fbf0692.css">
 </head>
+    <body>
+        <div id="app"></div>
+        
+    </body>
 </html>
