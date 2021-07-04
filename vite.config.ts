@@ -7,11 +7,6 @@ export default defineConfig({
     plugins: [vue()],
     build: {
         assetsDir: 'assets',
-        rollupOptions: {
-            input: {
-                main: resolve(__dirname, '404.html')
-            }
-        }
     },
     server: {
         hmr: {
