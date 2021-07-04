@@ -9,8 +9,7 @@ export default defineConfig({
         assetsDir: 'assets',
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                '404': resolve(__dirname, '404.html')
+                main: resolve(__dirname, '404.html')
             }
         }
     },
