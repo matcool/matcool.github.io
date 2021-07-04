@@ -45,7 +45,7 @@
 
             <h2 id="support-server" class="text-2xl">Support server</h2>
 
-            <p>if youre stuck or smth u can join here and ask :D</p>
+            <p>If you're stuck or have an issue you can join here to ask</p>
             <a class="text-blue-400 underline" href="https://discord.gg/K9Kuh3hzTC">https://discord.gg/K9Kuh3hzTC</a>
             <article style="background-color: #28292d;" class="px-4 pt-2 pb-3 table rounded mt-1">
                 <p class="mb-2 font-medium">You've been invited to join a server</p>
