@@ -27,11 +27,18 @@
             :dark="false"
         />
         <gd-mod
+            :media="menuShaders"
+            title="Menu shaders"
+            description="Replaces the background of the main menu with a custom shader, which can be customized."
+            link="https://github.com/matcool/small-gd-mods/releases/download/mods/menu-shaders.dll"
+            :dark="true"
+        />
+        <gd-mod
             :media="sumAttempts"
             title="Sum Attempts"
             description="Adds a button to the levels screen that adds up all the attempts in that folder"
             link="https://github.com/matcool/small-gd-mods/releases/download/mods/sum-attempts.dll"
-            :dark="true"
+            :dark="false"
         />
         <div class="bg-plain-gray-darkish p-4 text-white">
             <h1 class="text-3xl">Other mods</h1>
@@ -105,6 +112,7 @@ import runInfo from '../assets/run-info.webp';
 import rgbtest from '../assets/rgb-color.webm';
 import songSearch from '../assets/song-search.png';
 import sumAttempts from '../assets/sum-attempts.png';
+import menuShaders from '../assets/menu-shaders.png';
 import gdIcon from '../assets/gd-icon.png';
 import tutorial1 from '../assets/tutorial2.png';
 import tutorial3 from '../assets/tutorial3.png';
@@ -120,6 +128,7 @@ export default defineComponent({
             rgbtest,
             songSearch,
             sumAttempts,
+            menuShaders,
             gdIcon,
             tutorial1,
             tutorial3,
