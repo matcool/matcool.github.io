@@ -9,6 +9,7 @@ module.exports = {
                     DEFAULT: '#1e2021',
                     darkish: '#1a1d1e',
                     dark: '#171819',
+                    darker: '#101111',
                 }
             }
         },

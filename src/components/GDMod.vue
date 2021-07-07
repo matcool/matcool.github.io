@@ -1,9 +1,9 @@
 <template>
-    <div :class="{'bg-plain-gray-darkish': !dark, 'bg-plain-gray-dark': dark}" class="w-full">
-        <div class="flex lg:flex-row flex-col p-4">
+    <div class="bg-plain-gray-darkish w-full mt-5">
+        <div class="flex md:flex-row flex-col p-4 items-center">
             <img v-if="!isVideo" :src="media" alt="example image of the mod" class="thumb-img mr-4">
             <video v-if="isVideo" class="thumb-img mr-4" loop muted controls :src="media"></video>
-            <div class="">
+            <div class="mt-5 md:mt-0">
                 <h2 class="text-3xl text-white mb-2">{{ title }}</h2>
                 <p class="text-white max-w-lg">{{ description }}</p>
                 <a
@@ -17,7 +17,7 @@
 
 <style lang="postcss" scoped>
 .thumb-img {
-    max-width: 600px;
+    max-width: 400px;
     /* max-height: 337px; */
 }
 </style>
@@ -38,7 +38,6 @@ export default defineComponent({
         title: String,
         description: String,
         link: String,
-        dark: Boolean,
     },
     setup() {
         return {
