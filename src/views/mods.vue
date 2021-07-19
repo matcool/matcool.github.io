@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div>
         <div class="md:flex md:justify-center bg-plain-gray-darker">
             <div class="flex flex-col">
                 <div class="bg-plain-gray-light w-full p-5 mt-5">
@@ -30,8 +30,9 @@
                     :media="menuShaders"
                     title="Menu shaders"
                     description="Replaces the background of the main menu with a custom shader, which can be customized."
-                    link="https://github.com/matcool/small-gd-mods/releases/download/mods/menu-shaders.dll"
-                />
+                    link="https://github.com/matcool/small-gd-mods/releases/download/mods/menu-shaders.dll">
+                    <span class="text-blue-300 cursor-pointer hover:underline" @click="showMenuShaderModal = true">Click here to see more info.</span>
+                </gd-mod>
                 <gd-mod
                     :media="sumAttempts"
                     title="Sum Attempts"
@@ -112,6 +113,16 @@
         <div class="bg-plain-gray-darker text-right pr-4 pb-2">
             <a href="https://github.com/Partur1" class="text-blue-400">Design from Partur</a>
         </div>
+        <modal :show="showMenuShaderModal" @close="showMenuShaderModal = false">
+            <div class="bg-plain-gray text-white p-4 max-w-2xl">
+                To customize the shader, create a file named <span class="font-mono">menu-shader.fsh</span> in your Resources folder
+                with the shader you want. For a few already made shaders, checkout this thread: <a class="text-blue-400" href="https://twitter.com/mateus44_/status/1412108556921344006?s=20">https://twitter.com/mateus44_/status/1412108556921344006?s=20</a>
+                <div class="flex flex-wrap">
+                    <img src="https://pbs.twimg.com/media/E5jnEKUXoAQKZuw?format=jpg&name=large" alt="shader" class="m-1 w-72">
+                    <img src="https://pbs.twimg.com/media/E5jhMUDWUAcISFj?format=jpg&name=large" alt="shader" class="m-1 w-72">
+                </div>
+            </div>
+        </modal>
     </div>
 </template>
 
@@ -120,8 +131,9 @@
 </style>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import GDMod from '../components/GDMod.vue';
+import Modal from '../components/Modal.vue';
 import runInfo from '../assets/run-info.webp';
 import rgbtest from '../assets/rgb-color.webm';
 import songSearch from '../assets/song-search.png';
@@ -134,7 +146,8 @@ import tutorial4 from '../assets/tutorial4.png';
 
 export default defineComponent({
     components: {
-        'gd-mod': GDMod
+        'gd-mod': GDMod,
+        modal: Modal
     },
     setup() {
         return {
@@ -146,7 +159,8 @@ export default defineComponent({
             gdIcon,
             tutorial1,
             tutorial3,
-            tutorial4
+            tutorial4,
+            showMenuShaderModal: ref(false)
         };
     }
 });

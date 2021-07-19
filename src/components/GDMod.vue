@@ -5,7 +5,7 @@
             <video v-if="isVideo" class="thumb-img mr-4" loop muted controls :src="media"></video>
             <div class="mt-5 md:mt-0">
                 <h2 class="text-3xl text-white mb-2">{{ title }}</h2>
-                <p class="text-white max-w-lg">{{ description }}</p>
+                <p class="text-white max-w-lg">{{ description }} <slot></slot> </p>
                 <a
                 :href="link"
                 class="bg-green-400 hover:bg-green-500 active:bg-green-600 focus:outline-none mt-5 p-2 pr-8 font-semibold inline-flex cursor-pointer select-none w-min">
