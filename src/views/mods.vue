@@ -43,6 +43,15 @@
                     <ul class="list-disc list-inside ml-3 mt-3">
                         <li><a class="text-blue-400 hover:underline" href="https://github.com/matcool/small-gd-mods/releases/download/mods/every-key-jumps.dll">Every key jumps</a> &mdash; Allows you to play gd with almost every key in your keyboard </li>
                         <li><a class="text-blue-400 hover:underline" href="https://github.com/matcool/small-gd-mods/releases/download/mods/global-clipboard.dll">Global clipboard</a> &mdash; Stores your object clipboard between levels <span class="text-sm italic">(this is now included in BetterEdit)</span></li>
+                        <li>
+                            <a class="text-blue-400 hover:underline" href="https://github.com/matcool/small-gd-mods/releases/download/mods/crash-logger.dll">Crash logger</a>
+                            &mdash; Basic logger that logs crashes in a file named <span class="font-mono">crash-log.log</span>
+                        </li>
+                        <li class="max-w-3xl">
+                            <a class="text-blue-400 hover:underline" href="https://github.com/matcool/small-gd-mods/releases/download/mods/fps-multiplier.dll">FPS "multiplier"</a>
+                            &mdash; (MHv6 extension only) Runs the gd physics multiple times a frame, letting you play with the same physics as higher fpses. Note that
+                            input delay is still the same, so this won't improve playing experience much.
+                        </li>
                     </ul>
                 </div>
                 <div id="install-instructions" class="bg-plain-gray-dark p-4 px-6 text-white">
