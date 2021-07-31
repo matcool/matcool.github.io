@@ -31,10 +31,10 @@ jobs:
           mv dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.0.0-beta-01
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          CLEAN: true
-          CLEAN_EXCLUDE: '[".nojekyll"]'
+          branch: gh-pages
+          folder: dist
+          clean: true
+          clean-exclude: |
+            .nojekyll
