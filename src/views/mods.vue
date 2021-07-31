@@ -5,8 +5,19 @@
                 <div class="bg-plain-gray-light w-full p-5 mt-5">
                     <h1 class="text-4xl text-white font-semibold">Small GD Mods</h1>
                     <h1 class="mt-3 text-white">A collection of small utility mods for Geometry Dash</h1>
-                    <p class="text-gray-200 mt-5 italic">Please read the installation instructions below! ↓</p>
+                    <p class="text-gray-200 mt-5 italic">Please read the <a href="#install-instructions" class="text-blue-300 hover:underline">install instructions</a> below! ↓</p>
                 </div>
+                <div class="bg-plain-gray-dark text-white w-full p-5 mt-5">
+                    <h2 class="text-3xl mb-2">MinHook</h2>
+
+                    <p>This library is required for <b>all</b> of these mods to work</p>
+                    <p>Not having it will make them <span class="font-bold text-2xl underline text-red-400">not work at all</span></p>
+                    <p>Download <span class="font-mono">minhook.x32.dll</span> and place it in your <span class="font-medium">GD folder</span> (for more info read the <a href="#install-instructions" class="text-blue-300 hover:underline">install instructions</a>)</p>
+                    <div class="my-3">
+                        <a href="https://github.com/HJfod/minhook/releases/latest/download/minhook.x32.dll" class="bg-blue-400 hover:bg-blue-500 active:bg-blue-600 text-black font-semibold p-2">Download Here</a>
+                    </div>
+                </div>
+                
                 <gd-mod
                     :media="runInfo"
                     title="Run Info"
