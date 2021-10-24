@@ -12,10 +12,18 @@
 
                     <p>This library is required for <b>all</b> of these mods to work</p>
                     <p>Not having it will make them <span class="font-bold text-2xl underline text-red-400">not work at all</span></p>
-                    <p>Download <span class="font-mono">minhook.x32.dll</span> and place it in your <span class="font-medium">GD folder</span> (for more info read the <a href="#install-instructions" class="text-blue-300 hover:underline">install instructions</a>)</p>
+                    <p>Download <span class="font-mono">minhook.x32.dll</span> and place it in your <span class="font-medium">GD folder</span> (for more info read the <a href="#install-instructions" class="link">install instructions</a>)</p>
                     <div class="my-3">
                         <a href="https://github.com/HJfod/minhook/releases/latest/download/minhook.x32.dll" class="bg-blue-400 hover:bg-blue-500 active:bg-blue-600 text-black font-semibold p-2">Download Here</a>
                     </div>
+                </div>
+
+                <div class="bg-plain-gray-dark text-white p-5 mt-5">
+                    <h2 class="text-3xl mb-2">Visual C++ Redistributables</h2>
+
+                    <p>Having issues with the mods simply not loading at all? Try installing the Microsoft Visual C++ Redistributables</p>
+                    <a class="link" href="https://aka.ms/vs/16/release/vc_redist.x86.exe">
+                    https://aka.ms/vs/16/release/vc_redist.x86.exe</a>
                 </div>
                 
                 <gd-mod
@@ -42,7 +50,7 @@
                     title="Menu shaders"
                     description="Replaces the background of the main menu with a custom shader, which can be customized."
                     link="https://github.com/matcool/small-gd-mods/releases/download/mods/menu-shaders.dll">
-                    <span class="text-blue-300 cursor-pointer hover:underline" @click="showMenuShaderModal = true">Click here to see more info.</span>
+                    <span class="link cursor-pointer" @click="showMenuShaderModal = true">Click here to see more info.</span>
                 </gd-mod>
                 <gd-mod
                     :media="sumAttempts"
@@ -77,7 +85,7 @@
                         <p class="mb-2 font-medium">You've been invited to join a server</p>
                         <section class="flex w-full justify-items-center">
                             <img class="h-12 w-auto rounded-2xl" src="https://cdn.discordapp.com/icons/822510988409831486/39b0193a75727a251bc70870fbbb8da7.webp?size=256" alt="server icon">
-                            <p class="ml-2 mt-1 mr-14 font-bold text-base">GD Mods</p>
+                            <p class="ml-2 mt-1 mr-14 font-bold text-base">GD Modding</p>
                             <a href="https://discord.gg/K9Kuh3hzTC" class="bg-green-600 hover:bg-green-700 active:bg-green-800 justify-self-end self-center px-4 py-2 ml-auto rounded">Join</a>
                         </section>
                     </article>
@@ -116,22 +124,25 @@
                     <img :src="tutorial4">
 
                     <h3 class="text-2xl mt-3 text-gray-200">else</h3>
-                    <p>If you don't have a mod loader, you can join the <a class="text-blue-400" href="#support-server">GD Mods</a> server and follow the installation instructions for quickldr</p>
+                    <p>If you don't have a mod loader, you can join the <a class="link" href="#support-server">GD Mods</a> server and follow the installation instructions for quickldr</p>
                 </div>
             </div>
         </div>
         <div class="bg-plain-gray-darker h-32"></div>
         <div class="bg-plain-gray-darker text-right pr-4 pb-2">
-            <a href="https://github.com/Partur1" class="text-blue-400">Design from Partur</a>
+            <a href="https://github.com/Partur1" class="link">Design by Partur</a>
         </div>
         <modal :show="showMenuShaderModal" @close="showMenuShaderModal = false">
             <div class="bg-plain-gray text-white p-4 max-w-2xl">
                 To customize the shader, create a file named <span class="font-mono">menu-shader.fsh</span> in your Resources folder
-                with the shader you want. For a few already made shaders, checkout this thread: <a class="text-blue-400" href="https://twitter.com/mateus44_/status/1412108556921344006?s=20">https://twitter.com/mateus44_/status/1412108556921344006?s=20</a>
+                with the shader you want. For a few already made shaders, checkout this thread: <a class="link" href="https://twitter.com/mateus44_/status/1412108556921344006?s=20">https://twitter.com/mateus44_/status/1412108556921344006?s=20</a>
                 <div class="flex flex-wrap">
                     <img src="https://pbs.twimg.com/media/E5jnEKUXoAQKZuw?format=jpg&name=large" alt="shader" class="m-1 w-72">
                     <img src="https://pbs.twimg.com/media/E5jhMUDWUAcISFj?format=jpg&name=large" alt="shader" class="m-1 w-72">
                 </div>
+                <div class="border-b-2 border-plain-gray-dark my-5"></div>
+                If you want to convert shaders from shadertoy yourself you can try using Tning's <a class="link" href="https://shadertoyporter.github.io/">Shadertoy porter</a>,
+                but be aware that not every shader will work
             </div>
         </modal>
     </div>
