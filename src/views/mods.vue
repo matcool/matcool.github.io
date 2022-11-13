@@ -78,6 +78,8 @@
                             &mdash; (MHv6 extension only) Runs the gd physics multiple times a frame, letting you play with the same physics as higher fpses. Note that
                             input delay is still the same, so this won't improve playing experience much.
                         </li>
+                        <li><a class="text-blue-400 hover:underline" href="https://github.com/matcool/small-gd-mods/releases/download/mods/timestamp-fix.dll">Timestamp Fix</a> &mdash; Fixes level uploaded/updated timestamps always showing up as NA ago</li>
+                        <li><a class="text-blue-400 hover:underline" href="https://github.com/matcool/small-gd-mods/releases/download/mods/fix-effect-lines.dll">Fix Effect Lines</a> &mdash; Fixes trigger effect lines not showing up sometimes</li>
                     </ul>
                 </div>
                 <div id="install-instructions" class="bg-plain-gray-dark p-4 px-6 text-white">
@@ -90,7 +92,7 @@
                     <article style="background-color: #28292d;" class="px-4 pt-2 pb-3 table rounded mt-1">
                         <p class="mb-2 font-medium">You've been invited to join a server</p>
                         <section class="flex w-full justify-items-center">
-                            <img class="h-12 w-auto rounded-2xl" src="https://cdn.discordapp.com/icons/822510988409831486/39b0193a75727a251bc70870fbbb8da7.webp?size=256" alt="server icon">
+                            <img class="h-12 w-auto rounded-2xl" src="https://cdn.discordapp.com/icons/822510988409831486/03466634582a64ef1c1329299fe00be3.webp?size=256" alt="server icon">
                             <p class="ml-2 mt-1 mr-14 font-bold text-base">GD Modding</p>
                             <a href="https://discord.gg/K9Kuh3hzTC" class="bg-green-600 hover:bg-green-700 active:bg-green-800 justify-self-end self-center px-4 py-2 ml-auto rounded">Join</a>
                         </section>
@@ -115,7 +117,7 @@
                 <div class="bg-plain-gray-dark mt-5 p-4 px-6 text-white">
                     <h1 class="text-4xl border-b border-gray-500 mb-4">Specific instructions</h1>
 
-                    <h3 class="text-2xl mt-3">Mega Hack v6</h3>
+                    <h3 class="text-2xl mt-3">Mega Hack v6/v7</h3>
                     <p>Place the mod you want to install in the extensions folder, which you can open by clicking here</p>
                     <img :src="tutorial3">
 
@@ -130,7 +132,15 @@
                     <img :src="tutorial4">
 
                     <h3 class="text-2xl mt-3 text-gray-200">else</h3>
-                    <p>If you don't have a mod loader, you can join the <a class="link" href="#support-server">GD Mods</a> server and follow the installation instructions for quickldr</p>
+
+                    <h4 class="text-xl mt-3 text-gray-200">ProxyDLLLoader install</h4>
+                    <p>If you don't have any way of loading mods, you can install ProxyDLLLoader pretty easily.</p>
+                    <p>Simply download the dll from <a class="link" href="https://github.com/adafcaefc/ProxyDllLoader/releases/tag/v1.0">the github release</a> and put it in your GD folder.</p>
+                    <p>Afterwards, you can put your mods in the <span class="font-mono">adaf-dll</span> folder, located in your GD folder.</p>
+                    <p>(If the folder is not there, you can simply create it)</p>
+
+                    <h4 class="text-xl mt-3 text-gray-200">quickldr install</h4>
+                    <p>As for quickldr, you can join the <a class="link" href="#support-server">GD Mods</a> server and follow the installation instructions for quickldr</p>
                 </div>
             </div>
         </div>
