@@ -53,6 +53,12 @@
                     <span class="link cursor-pointer" @click="showMenuShaderModal = true">Click here to see more info.</span>
                 </gd-mod>
                 <gd-mod
+                    :media="circleTool"
+                    title="Circle Tool"
+                    description="Adds a tool to the editor to generate circles by duplicating and rotating objects"
+                    link="https://github.com/matcool/small-gd-mods/releases/download/mods/circle-tool.dll"
+                />
+                <gd-mod
                     :media="sumAttempts"
                     title="Sum Attempts"
                     description="Adds a button to the levels screen that adds up all the attempts in that folder"
@@ -161,6 +167,7 @@ import rgbtest from '../assets/rgb-color.webm';
 import songSearch from '../assets/song-search.png';
 import sumAttempts from '../assets/sum-attempts.png';
 import menuShaders from '../assets/menu-shaders.png';
+import circleTool from '../assets/circle-tool.png';
 import gdIcon from '../assets/gd-icon.png';
 import tutorial1 from '../assets/tutorial2.png';
 import tutorial3 from '../assets/tutorial3.png';
@@ -178,6 +185,7 @@ export default defineComponent({
             songSearch,
             sumAttempts,
             menuShaders,
+            circleTool,
             gdIcon,
             tutorial1,
             tutorial3,
