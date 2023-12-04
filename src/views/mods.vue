@@ -22,7 +22,7 @@
                     <h2 class="text-3xl mb-2">Visual C++ Redistributables</h2>
 
                     <p>Having issues with the mods simply not loading at all? Try installing the Microsoft Visual C++ Redistributables</p>
-                    <a class="link" href="https://aka.ms/vs/16/release/vc_redist.x86.exe">
+                    <a class="link" href="https://aka.ms/vs/17/release/vc_redist.x86.exe">
                     https://aka.ms/vs/16/release/vc_redist.x86.exe</a>
                 </div>
                 
