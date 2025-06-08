@@ -6,9 +6,6 @@
                 <a href="https://github.com/matcool">
                     <img :src="githubLogo" class="w-8 h-auto" />
                 </a>
-                <a href="https://www.youtube.com/channel/UCvIsjvDr8uUQJ820smcvDCg">
-                    <img :src="youtubeLogo" class="w-8 h-auto" />
-                </a>
             </div>
             <h2 class="text-4xl font-semibold text-gray-100 text-shadow-lg my-5">Websites</h2>
             <div class="flex flex-wrap justify-center gap-10 lg:mx-40">
@@ -27,7 +24,6 @@
         >Image from unsplash</a
     >
 </template>
-
 
 <style lang="postcss">
 .unsplash-text {
@@ -78,29 +74,14 @@ export default defineComponent({
 
         const other: CardContent[] = [
             {
+                title: 'Geode SDK',
+                link: 'https://geode-sdk.org',
+                description: 'Mod loader and SDK for Geometry Dash',
+            },
+            {
                 title: 'Anvil Parser',
                 link: 'https://github.com/matcool/anvil-parser',
                 description: 'A python library for parsing Minecraft region files',
-            },
-            {
-                title: 'Schezo',
-                link: 'https://github.com/matcool/schezo-bot',
-                description: 'A private discord bot',
-            },
-            {
-                title: 'GD Song Server',
-                link: 'https://github.com/matcool/gd-song-server',
-                description: 'A custom song server for Geometry Dash with additional features',
-            },
-            {
-                title: 'PyGDPS',
-                link: 'https://github.com/matcool/pygdps',
-                description: 'A GDPS written in python. Currently WIP',
-            },
-            {
-                title: 'Cursed Obsidian',
-                link: 'https://github.com/matcool/cursed-obsidian',
-                description: 'A manager for curseforge Minecraft mods (would not recommend using)',
             },
         ];
         return {

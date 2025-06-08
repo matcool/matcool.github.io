@@ -2,6 +2,12 @@
     <div>
         <div class="md:flex md:justify-center bg-plain-gray-darker">
             <div class="flex flex-col">
+                <div class="bg-red-800 w-full p-5 mt-5">
+                    <h1 class="text-4xl text-white font-semibold">Warning</h1>
+                    <p class="mt-3 text-white">These are standalone mods made for 2.1.</p>
+                    <p class="text-white">For updated versions, please visit <a href="https://geode-sdk.org" class="text-blue-300 hover:underline">https://geode-sdk.org/</a> instead.</p>
+                </div>
+                
                 <div class="bg-plain-gray-light w-full p-5 mt-5">
                     <h1 class="text-4xl text-white font-semibold">Small GD Mods</h1>
                     <h1 class="mt-3 text-white">A collection of small utility mods for Geometry Dash</h1>
